@@ -16,7 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
+        tools:context=".activities.MainActivity"
         android:animateLayoutChanges="true"
         android:background="@color/colorPrimary">
 
@@ -38,7 +38,7 @@
                 android:maxLines="1"
                 android:layout_weight="1"
                 android:ellipsize="end"
-                android:fontFamily="@font/Ubuntu_Bold"
+                android:fontFamily="@font/ubuntu_bold"
                 android:includeFontPadding="false"
                 android:text="@string/tv_show_most_popular"
                 android:textColor="@color/colorTextIcon"
