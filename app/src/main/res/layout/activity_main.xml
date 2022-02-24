@@ -35,14 +35,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
-                android:maxLines="1"
                 android:layout_weight="1"
                 android:ellipsize="end"
-                android:fontFamily="@font/ubuntu_bold"
+                android:fontFamily="sans-serif-black"
                 android:includeFontPadding="false"
+                android:maxLines="1"
                 android:text="@string/tv_show_most_popular"
                 android:textColor="@color/colorTextIcon"
-                android:textSize="@dimen/_14ssp"/>
+                android:textSize="@dimen/_14ssp" />
 
             <ImageView
                 android:id="@+id/image_watchlist"
@@ -72,7 +72,6 @@
             android:layout_height="0dp"
             android:clipToPadding="false"
             android:padding="@dimen/_4sdp"
-            android:visibility="gone"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/layout_header"

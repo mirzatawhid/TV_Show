@@ -1,94 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/image_TV_show"
-        android:scaleType="centerCrop"
-        android:layout_width="@dimen/_70sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:riv_corner_radius="@dimen/_4sdp"/>
+    <data>
 
-    <View
-        android:id="@+id/view_supporter"
+        <variable
+            name="tvShow"
+            type="com.dhakaiyacoder.tvshow.models.TvShow" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@id/image_TV_show"/>
+        android:layout_height="wrap_content">
 
 
-    <View
-        android:id="@+id/view_background"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        app:layout_constraintTop_toTopOf="@id/textName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/background_tvshow"/>
+        <View
+            android:id="@+id/view_supporter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/image_TV_show" />
 
 
+        <View
+            android:id="@+id/view_background"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="@id/textName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/background_tvshow" />
 
-    <TextView
-        android:id="@+id/textName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:textSize="@dimen/_13ssp"
-        android:textColor="@color/colorTextPrimary"
-        android:paddingTop="@dimen/_8sdp"
-        android:fontFamily="@font/ubuntu_medium"
-        android:includeFontPadding="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/image_TV_show"
-        app:layout_constraintTop_toTopOf="@id/image_TV_show"/>
-
-    <TextView
-        android:id="@+id/text_network"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:textColor="@color/colorTextOther"
-        android:fontFamily="@font/ubuntu_regular"
-        android:textSize="@dimen/_12ssp"
-        android:includeFontPadding="false"
-        app:layout_constraintTop_toBottomOf="@id/textName"
-        app:layout_constraintStart_toStartOf="@id/textName"
-        app:layout_constraintEnd_toEndOf="@id/textName"/>
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/image_TV_show"
+            android:scaleType="centerCrop"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:imageURL='@{tvShow.imageThumbnailPath}'
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/_4sdp" />
 
 
-    <TextView
-        android:id="@+id/text_started"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:textColor="@color/colorTextSecondary"
-        android:fontFamily="@font/ubuntu_regular"
-        android:textSize="@dimen/_12ssp"
-        android:includeFontPadding="false"
-        app:layout_constraintTop_toBottomOf="@id/text_network"
-        app:layout_constraintStart_toStartOf="@id/textName"
-        app:layout_constraintEnd_toEndOf="@id/textName"/>
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:fontFamily="sans-serif"
+            android:includeFontPadding="false"
+            android:paddingTop="@dimen/_8sdp"
+            android:text='@{tvShow.name}'
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image_TV_show"
+            app:layout_constraintTop_toTopOf="@id/image_TV_show" />
+
+        <TextView
+            android:id="@+id/text_network"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="sans-serif"
+            android:includeFontPadding="false"
+            android:text='@{tvShow.network + "(" + tvShow.country + ")"}'
+            android:textColor="@color/colorTextOther"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="@id/textName"
+            app:layout_constraintStart_toStartOf="@id/textName"
+            app:layout_constraintTop_toBottomOf="@id/textName" />
 
 
-    <TextView
-        android:id="@+id/text_status"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:textColor="@android:color/holo_green_light"
-        android:textSize="@dimen/_12ssp"
-        android:fontFamily="@font/ubuntu_regular"
-        android:includeFontPadding="false"
-        app:layout_constraintStart_toStartOf="@id/textName"
-        app:layout_constraintEnd_toEndOf="@id/textName"
-        app:layout_constraintTop_toBottomOf="@id/text_started"/>
+        <TextView
+            android:id="@+id/text_started"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="sans-serif"
+            android:includeFontPadding="false"
+            android:text='@{"Started on : " + tvShow.startDate}'
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="@id/textName"
+            app:layout_constraintStart_toStartOf="@id/textName"
+            app:layout_constraintTop_toBottomOf="@id/text_network" />
 
 
+        <TextView
+            android:id="@+id/text_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="sans-serif"
+            android:includeFontPadding="false"
+            android:text='@{tvShow.status}'
+            android:textColor="@android:color/holo_green_light"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="@id/textName"
+            app:layout_constraintStart_toStartOf="@id/textName"
+            app:layout_constraintTop_toBottomOf="@id/text_started" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
