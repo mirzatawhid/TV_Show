@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Practice/TVShow/app/src/main/res/drawable/background_fading_edge.xml" value="0.1535" />
+        <entry key="..\:/Android Practice/TVShow/app/src/main/res/drawable/background_slider_indicator_active.xml" value="0.1535" />
+        <entry key="..\:/Android Practice/TVShow/app/src/main/res/drawable/background_slider_indicator_inactive.xml" value="0.1535" />
         <entry key="..\:/Android Practice/TVShow/app/src/main/res/drawable/background_tvshow.xml" value="0.189" />
         <entry key="..\:/Android Practice/TVShow/app/src/main/res/font/ubuntu_medium.xml" value="0.14322916666666666" />
         <entry key="..\:/Android Practice/TVShow/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android Practice/TVShow/app/src/main/res/layout/activity_tvshow_details.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android Practice/TVShow/app/src/main/res/layout/item_container_image_slider.xml" value="0.22826086956521738" />
         <entry key="..\:/Android Practice/TVShow/app/src/main/res/layout/item_container_tvshows.xml" value="0.2" />
       </map>
     </option>

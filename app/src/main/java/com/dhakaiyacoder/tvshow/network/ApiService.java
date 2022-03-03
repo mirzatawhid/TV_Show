@@ -1,5 +1,6 @@
 package com.dhakaiyacoder.tvshow.network;
 
+import com.dhakaiyacoder.tvshow.Response.TVShowDetailsResponse;
 import com.dhakaiyacoder.tvshow.Response.TvShowResponse;
 
 import retrofit2.Call;
@@ -10,5 +11,8 @@ public interface ApiService {
 
     @GET("most-popular")
     Call<TvShowResponse> getMostPopularTVShows(@Query("page") int page);
+
+    @GET("show-details")
+    Call<TVShowDetailsResponse> getTVShowDetails(@Query("q") String tvShowId);
 
 }
