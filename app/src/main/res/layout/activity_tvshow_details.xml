@@ -8,6 +8,43 @@
         <variable
             name="isLoading"
             type="Boolean" />
+
+        <variable
+            name="tvShowImageURl"
+            type="String" />
+        
+        <variable
+            name="tvShowName"
+            type="String" />
+        
+        <variable
+            name="networkCountry"
+            type="String" />
+        
+        <variable
+            name="status"
+            type="String" />
+        
+        <variable
+            name="startedDate"
+            type="String" />
+
+        <variable
+            name="description"
+            type="String" />
+        
+        <variable
+            name="rating"
+            type="String" />
+        
+        <variable
+            name="genre"
+            type="String" />
+        
+        <variable
+            name="runtime"
+            type="String" />
+
         <import type="android.view.View"/>
 
     </data>
@@ -18,32 +55,316 @@
         tools:context=".activities.TVShowDetailsActivity"
         android:background="@color/colorPrimary">
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/view_pagerID"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_160sdp"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/view_pagerID"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_160sdp"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:id="@+id/show_fading_edge"
-            android:visibility="gone"
-            android:background="@drawable/background_fading_edge"
-            app:layout_constraintBottom_toBottomOf="@id/view_pagerID"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:id="@+id/show_fading_edge"
+                    android:visibility="gone"
+                    android:background="@drawable/background_fading_edge"
+                    app:layout_constraintBottom_toBottomOf="@id/view_pagerID"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/layout_slider_indicator"
-            android:gravity="center"
-            android:padding="@dimen/_8sdp"
-            android:visibility="gone"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@id/show_fading_edge"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layout_slider_indicator"
+                    android:gravity="end|center_vertical"
+                    android:padding="@dimen/_8sdp"
+                    android:visibility="gone"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="@id/show_fading_edge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvShowImageID"/>
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:id="@+id/image_backID"
+                    android:contentDescription="@string/app_name"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/backfround_back_button"
+                    android:padding="@dimen/_3sdp"
+                    android:src="@drawable/ic_back"
+                    app:tint="@color/colorTextIcon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/tvShowImageID"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:imageURL="@{tvShowImageURl}"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/view_pagerID"
+                    app:layout_constraintTop_toBottomOf="@id/view_pagerID"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:riv_corner_radius="@dimen/_6sdp"/>
+
+
+                <TextView
+                    android:id="@+id/textName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_14ssp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@{tvShowName}"
+                    android:textColor="@color/colorTextIcon"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvShowImageID"
+                    app:layout_constraintTop_toBottomOf="@id/view_pagerID"/>
+
+                <TextView
+                    android:id="@+id/textNetwokCountry"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/colorTextOther"
+                    android:textSize="@dimen/_12ssp"
+                    android:text="@{networkCountry}"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/textName"
+                    app:layout_constraintEnd_toEndOf="@id/textName"
+                    app:layout_constraintTop_toBottomOf="@id/textName"/>
+
+
+                <TextView
+                    android:id="@+id/textStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="@dimen/_12ssp"
+                    android:text="@{status}"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/textName"
+                    app:layout_constraintEnd_toEndOf="@id/textName"
+                    app:layout_constraintTop_toBottomOf="@id/textNetwokCountry"/>
+
+                <TextView
+                    android:id="@+id/textStartedDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/_12ssp"
+                    android:text='@{"Started Date: " +startedDate}'
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/textName"
+                    app:layout_constraintEnd_toEndOf="@id/textName"
+                    app:layout_constraintTop_toBottomOf="@id/textStatus"/>
+
+                <TextView
+                    android:id="@+id/textDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:maxLines="4"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:includeFontPadding="false"
+                    android:textSize="@dimen/_11ssp"
+                    android:textColor="@color/colorTextIcon"
+                    android:fontFamily="sans-serif"
+                    android:text="@{description}"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/tvShowImageID"/>
+
+                <TextView
+                    android:id="@+id/textReadMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="sans-serif-medium"
+                    android:includeFontPadding="false"
+                    android:textSize="@dimen/_12ssp"
+                    android:text="@string/read_more"
+                    android:textColor="@color/colorAccent"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/textDesc"
+                    app:layout_constraintTop_toBottomOf="@id/textDesc"/>
+
+                <View
+                    android:id="@+id/viewDivider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@color/colorTextSecondary"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/textReadMore"/>
+
+
+                <LinearLayout
+                    android:id="@+id/layoutMisc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/viewDivider1">
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:src="@drawable/ic_star"
+                        android:contentDescription="@string/app_name"
+                        app:tint="@color/colorTextOther" />
+
+                    <TextView
+                        android:id="@+id/textRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{rating}"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:fontFamily="sans-serif"
+                        android:textSize="@dimen/_12ssp"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/colorTextIcon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/u2022"
+                        android:textColor="@color/colorAccent"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:textSize="@dimen/_13ssp"
+                        android:includeFontPadding="false"
+                        android:fontFamily="sans-serif-black"/>
+
+                    <TextView
+                        android:id="@+id/textGenre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{genre}"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:fontFamily="sans-serif"
+                        android:textSize="@dimen/_12ssp"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/colorTextIcon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/u2022"
+                        android:textColor="@color/colorAccent"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:textSize="@dimen/_13ssp"
+                        android:includeFontPadding="false"
+                        android:fontFamily="sans-serif-black"/>
+
+                    <TextView
+                        android:id="@+id/textRuntime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{runtime}"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:fontFamily="sans-serif"
+                        android:textSize="@dimen/_12ssp"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/colorTextIcon"/>
+
+                </LinearLayout>
+
+
+                <View
+                    android:id="@+id/viewDivider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@color/colorTextSecondary"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/layoutMisc"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonWebsite"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:text="@string/website"
+                    android:textSize="@dimen/_12ssp"
+                    android:backgroundTint="@color/colorAccent"
+                    android:fontFamily="sans-serif-medium"
+                    android:includeFontPadding="false"
+                    app:cornerRadius="@dimen/_6sdp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/buttonEpisode"
+                    app:layout_constraintTop_toBottomOf="@id/viewDivider2"/>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonEpisode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:text="@string/episode"
+                    android:textSize="@dimen/_12ssp"
+                    android:backgroundTint="@color/colorTextOther"
+                    android:textColor="#212121"
+                    android:fontFamily="sans-serif-medium"
+                    android:includeFontPadding="false"
+                    app:cornerRadius="@dimen/_6sdp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@id/buttonWebsite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/viewDivider2"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
 
         <ProgressBar
             android:layout_width="@dimen/_25sdp"
