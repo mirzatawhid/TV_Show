@@ -11,8 +11,10 @@
         <entry key="..\:/Android Practice/TVShow/app/src/main/res/font/ubuntu_medium.xml" value="0.14322916666666666" />
         <entry key="..\:/Android Practice/TVShow/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Android Practice/TVShow/app/src/main/res/layout/activity_tvshow_details.xml" value="0.1" />
+        <entry key="..\:/Android Practice/TVShow/app/src/main/res/layout/item_container_episode.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Practice/TVShow/app/src/main/res/layout/item_container_image_slider.xml" value="0.22826086956521738" />
         <entry key="..\:/Android Practice/TVShow/app/src/main/res/layout/item_container_tvshows.xml" value="0.2" />
+        <entry key="..\:/Android Practice/TVShow/app/src/main/res/layout/layout_episodes_bottom_sheet.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

@@ -9,10 +9,10 @@ public class Episode {
 
     @SerializedName("season")
     @Expose
-    private Integer season;
+    private String season;
     @SerializedName("episode")
     @Expose
-    private Integer episode;
+    private String episode;
     @SerializedName("name")
     @Expose
     private String name;
@@ -20,19 +20,19 @@ public class Episode {
     @Expose
     private String airDate;
 
-    public Integer getSeason() {
+    public String getSeason() {
         return season;
     }
 
-    public void setSeason(Integer season) {
+    public void setSeason(String season) {
         this.season = season;
     }
 
-    public Integer getEpisode() {
+    public String getEpisode() {
         return episode;
     }
 
-    public void setEpisode(Integer episode) {
+    public void setEpisode(String episode) {
         this.episode = episode;
     }
 

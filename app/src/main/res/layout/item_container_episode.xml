@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        
+        <variable
+            name="title"
+            type="String" />
+        
+        <variable
+            name="name"
+            type="String" />
+        
+        <variable
+            name="airDate"
+            type="String" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/episodeContainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        android:padding="@dimen/_8sdp"
+        android:background="@drawable/background_tvshow">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{title}"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/colorTextIcon"
+            android:textSize="@dimen/_13ssp"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:includeFontPadding="false"
+            android:text="@{name}"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/colorTextIcon"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:includeFontPadding="false"
+            android:text="@{airDate}"
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorTextIcon"/>
+
+    </LinearLayout>
+</layout>
